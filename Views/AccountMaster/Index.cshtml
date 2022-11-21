@@ -1,0 +1,40 @@
+﻿@model IEnumerable<BFS.Models.FIS_AccountMaster>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FIS_Customer.ClientName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FIS_Customer.Address_1)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientID)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,235 @@
+﻿@model BFS.Models.FIS_Customer
+
+<h4>FIS_Customer</h4>
+<hr />
+<div class="row">
+    <div class="col-md-10">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <table border="1" cellpadding="8">
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label asp-for="ClientID" class="control-label"></label>
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        <div class="form-group">
+                            <input asp-for="ClientID" class="form-control" />
+                            <span asp-validation-for="ClientID" class="text-danger"></span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label asp-for="ClientName" class="control-label"></label>
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        <input asp-for="ClientName" class="form-control" />
+                        <span asp-validation-for="ClientID" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label asp-for="ClientType" class="control-label"></label>
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        <div>
+                            <select name="ClientType" id="ClientType">
+                                <option>I</option>
+                                <option>N</option>
+                            </select>
+                            <span asp-validation-for="ClientID" class="text-danger"></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label asp-for="Address_1" class="control-label"></label>
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        <div>
+                            <input asp-for="Address_1" class="form-control" />
+                            <span asp-validation-for="ClientID" class="text-danger"></span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label asp-for="Address_2" class="control-label"></label>
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        <div>
+                            <input asp-for="Address_2" class="form-control" />
+                            <span asp-validation-for="ClientID" class="text-danger"></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label asp-for="City" class="control-label"></label>
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        <div>
+                            <input asp-for="City" class="form-control" />
+                            <span asp-validation-for="ClientID" class="text-danger"></span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label asp-for="District" class="control-label"></label>
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        <div>
+                            <input asp-for="District" class="form-control" />
+                            <span asp-validation-for="ClientID" class="text-danger"></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label asp-for="State" class="control-label"></label>
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        <div>
+                            <input asp-for="State" class="form-control" />
+                            <span asp-validation-for="ClientID" class="text-danger"></span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label asp-for="MobileNumber" class="control-label"></label>
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        <div>
+                            <input asp-for="MobileNumber" class="form-control" />
+                            <span asp-validation-for="ClientID" class="text-danger"></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label asp-for="PAN" class="control-label"></label>
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        <div>
+                            <input asp-for="PAN" class="form-control" />
+                            <span asp-validation-for="ClientID" class="text-danger"></span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label asp-for="AadharNo" class="control-label"></label>
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        <div>
+                            <input asp-for="AadharNo" class="form-control" />
+                            <span asp-validation-for="ClientID" class="text-danger"></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label asp-for="Telephone" class="control-label"></label>
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        <div>
+                            <input asp-for="Telephone" class="form-control" />
+                            <span asp-validation-for="Telephone" class="text-danger"></span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label asp-for="Gender" class="control-label"></label>
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        <div>
+                            <select name="Gender" id="Gender">
+                                <option>M</option>
+                                <option>F</option>
+                                <option>N</option>
+                                <option>T</option>
+                            </select>
+                            <span asp-validation-for="Gender" class="text-danger"></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label asp-for="Email" class="control-label"></label>                            
+                        </div>                       
+                    </td>
+                    <td>
+                        <div>
+                            <input asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                    </td>
+                </tr>
+                @* <tr>
+                <td>
+                <div class="form-group">
+                <label asp-for="Photo" class="control-label"></label>
+                </div>
+                </td>
+                <td colspan="2">
+                <div>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="file" name="Photo" class="form-control" />
+                </div>
+                </td>
+                <td>
+                <div class="form-group">
+                <label asp-for="Signature" class="control-label"></label>
+                </div>
+                </td>
+                <td colspan="2">
+                <div>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="file" name="Signature" class="form-control" />
+                </div>
+                </td>
+                </tr>*@
+                <tr>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="2"></td>
+                    <td colspan="2">
+                        <div class="form-group">
+                            <input type="submit" value="Save" class="btn btn-primary" />
+                            <input type="submit" value="Delete" class="btn btn-primary" />
+                            <input type="submit" value="Cancel" class="btn btn-primary" />
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

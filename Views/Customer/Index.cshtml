@@ -1,0 +1,126 @@
+﻿@model IEnumerable<BFS.Models.FIS_Customer>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address_1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address_2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.District)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.State)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MobileNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AadharNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PAN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telephone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.Photo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Signature)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.IsActive)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address_1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address_2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.District)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.State)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MobileNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AadharNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PAN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telephone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+               @Html.DisplayFor(modelItem => item.Gender)
+                    
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Photo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Signature)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                    @Html.ActionLink("Edit", "Edit", new {  id=item.ClientID  }) |
+                    @Html.ActionLink("Details", "Details", new {  id=item.ClientID  }) |
+                    @Html.ActionLink("Delete", "Delete", new {  id=item.ClientID  })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

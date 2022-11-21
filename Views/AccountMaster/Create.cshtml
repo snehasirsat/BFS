@@ -1,0 +1,291 @@
+﻿@model BFS.Models.FIS_AccountMaster
+
+<h4>FIS_AccountMaster</h4>
+<script type="text/javascript">
+    function addFunction() {
+        var table = document.getElementById("textbox");
+        var rowlen = table.rows.length;
+        var row = table.insertRow(rowlen);
+        row.id = rowlen;
+        var arr = ['textboxfiledname'];
+        for (i = 0; i < 2; i++) {
+            var x = row.insertCell(i)
+            if (i == 1) {
+                x.innerHTML = "<input type='button' onclick='removeCell(" + row.id + ")' value=Delete>"
+            } else {
+                x.innerHTML = "<label>" + arr[i] + ":</label><input type='textbox' name='" + arr[i] + "'>"
+            }
+        }
+    }
+
+    function removeCell(rowid) {
+        var table = document.getElementById(rowid).remove();
+    }
+</script>
+<hr />
+<div class="row">
+    <div class="col-md-10">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <table border="1" cellpadding="8">
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label asp-for="AccountID" class="control-label"></label>
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        <div class="form-group">
+                            <input asp-for="AccountID" class="form-control" />
+                            <span asp-validation-for="AccountID" class="text-danger"></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <h5>Client Information</h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label asp-for="ClientID" class="control-label"></label>
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        <input asp-for="ClientID" class="form-control" />
+                        <span asp-validation-for="ClientID" class="text-danger"></span>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label asp-for="FIS_Customer.ClientName" class="control-label"></label>
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        <input asp-for="FIS_Customer.ClientName" class="form-control" />
+                        <span asp-validation-for="FIS_Customer.ClientName" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label asp-for="FIS_Customer.Address_1" class="control-label"></label>
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        <input asp-for="FIS_Customer.Address_1" class="form-control" />
+                        <span asp-validation-for="FIS_Customer.Address_1" class="text-danger"></span>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label asp-for="FIS_Customer.Address_2" class="control-label"></label>
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        <input asp-for="FIS_Customer.Address_2" class="form-control" />
+                        <span asp-validation-for="FIS_Customer.Address_2" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label asp-for="FIS_Customer.City" class="control-label"></label>
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        <input asp-for="FIS_Customer.City" class="form-control" />
+                        <span asp-validation-for="FIS_Customer.City" class="text-danger"></span>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label asp-for="FIS_Customer.District" class="control-label"></label>
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        <input asp-for="FIS_Customer.District" class="form-control" />
+                        <span asp-validation-for="FIS_Customer.District" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label asp-for="FIS_Customer.MobileNumber" class="control-label"></label>
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        <input asp-for="FIS_Customer.MobileNumber" class="form-control" />
+                        <span asp-validation-for="FIS_Customer.MobileNumber" class="text-danger"></span>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label asp-for="FIS_Customer.PAN" class="control-label"></label>
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        <input asp-for="FIS_Customer.PAN" class="form-control" />
+                        <span asp-validation-for="FIS_Customer.PAN" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <h5>Account Information</h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label asp-for="FIS_BranchMaster.BranchID" class="control-label"></label>
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        <input asp-for="FIS_BranchMaster.BranchID" class="form-control" />
+                        <span asp-validation-for="FIS_BranchMaster.BranchID" class="text-danger"></span>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label asp-for="FIS_BranchMaster.BranchName" class="control-label"></label>
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        <input asp-for="FIS_BranchMaster.BranchName" class="form-control" />
+                        <span asp-validation-for="FIS_BranchMaster.BranchName" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label asp-for="FIS_LoanDepositMaster.FIS_SchemeMaster.FIS_GLMaster.GlCode" class="control-label"></label>
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        <input asp-for="FIS_LoanDepositMaster.FIS_SchemeMaster.FIS_GLMaster.GlCode" class="form-control" />
+                        <span asp-validation-for="FIS_LoanDepositMaster.FIS_SchemeMaster.FIS_GLMaster.GlCode" class="text-danger"></span>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label asp-for="FIS_LoanDepositMaster.FIS_SchemeMaster.FIS_GLMaster.GLName" class="control-label"></label>
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        <input asp-for="FIS_LoanDepositMaster.FIS_SchemeMaster.FIS_GLMaster.GLName" class="form-control" />
+                        <span asp-validation-for="FIS_LoanDepositMaster.FIS_SchemeMaster.FIS_GLMaster.GLName" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label asp-for="Operation" class="control-label"></label>
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        @*<input asp-for="Operation" class="form-control" />*@
+                        <select id="ddlOperationType" onclick="addFunction()">
+                            <option>Self</option>
+                            <option>Jointly</option>
+                            <option>AnyOne</option>
+                            <option>AnyTwo</option>
+                            <option>AnyThree</option>
+                        </select>
+
+                        <span asp-validation-for="Operation" class="text-danger"></span>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label asp-for="NoOfJoints" class="control-label"></label>
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        <input asp-for="NoOfJoints" class="form-control" />
+                        <span asp-validation-for="NoOfJoints" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label asp-for="ClientID" class="control-label"></label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label asp-for="FIS_Customer.ClientName" class="control-label"></label>
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        <div class="form-group">
+                            <label class="control-label">Designation</label>
+                        </div>
+                    </td>                    
+                </tr>
+                <tr>
+                    <td>
+                        <table id="textbox">                            
+                            <tr>
+                                <td>
+                                    <input type="button" onclick="addFunction()" value="AddTextbox" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                
+            </table>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<hr />
+<dl class="row">
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.AccountID)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.AccountID)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.ClientID)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.ClientID)
+    </dd>
+</dl>*@
+
+@*<form asp-action="Create">
+    <input type="submit" value="Save" class="btn btn-primary" />
+    <a asp-action="Index">Back to List</a>
+</form>
+</div>
+*@
